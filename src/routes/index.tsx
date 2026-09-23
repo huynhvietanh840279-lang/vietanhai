@@ -22,7 +22,7 @@ import {
 } from "lucide-react";
 import heroImage from "../assets/ai-agent-command-center.jpg";
 import speakerImage from "../assets/speaker-illustration.jpg";
-import paymentQr from "../assets/payment-qr.jpg.asset.json";
+import paymentQr from "../assets/payment-qr.png.asset.json";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -149,10 +149,10 @@ function PaymentModal({ open, onClose }: { open: boolean; onClose: () => void })
           <div className="mt-5 rounded-md border border-border bg-background p-4">
             <img
               src={paymentQr.url}
-              width={899}
-              height={1600}
+              width={487}
+              height={590}
               alt={`Mã QR chuyển khoản ${bank.amount} đến ${bank.accountName} tại ${bank.name}`}
-              className="mx-auto aspect-square w-full max-w-[16rem] rounded-md object-contain"
+              className="mx-auto w-full max-w-[15rem] rounded-md"
             />
             <dl className="mt-4 space-y-2 text-sm">
               <div className="flex items-center justify-between gap-3">
