@@ -1,6 +1,6 @@
 # Roadmap
 
-- [ ] Create original workshop imagery
-- [ ] Build the one-page sales experience and Zalo CTAs
-- [ ] Add page metadata and Vietnamese typography
-- [ ] Verify desktop and mobile layouts
+- [x] Create original workshop imagery
+- [x] Build the one-page sales experience and Zalo CTAs
+- [x] Add page metadata and Vietnamese typography
+- [x] Verify desktop and mobile layouts
