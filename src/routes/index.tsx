@@ -1,21 +1,28 @@
+import { useEffect, useState } from "react";
 import { createFileRoute } from "@tanstack/react-router";
 import {
   ArrowRight,
   Bot,
   CalendarDays,
+  Check,
   Code2,
+  Copy,
   Gift,
   Lightbulb,
+  MessageCircle,
   Network,
   Play,
+  QrCode,
   ShoppingBag,
   Sparkles,
   Users,
   Wrench,
+  X,
   Zap,
 } from "lucide-react";
 import heroImage from "../assets/ai-agent-command-center.jpg";
 import speakerImage from "../assets/speaker-illustration.jpg";
+import paymentQr from "../assets/payment-qr.png.asset.json";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -71,24 +78,175 @@ const benefits = [
   },
 ];
 
-const zaloHref = "https://zaloapp.com/qr/p/1np4wdmo7yk4v";
+const zaloConfirmHref = "https://zalo.me/0981081462";
+const bank = { name: "ACB", accountName: "HUYNH VIET ANH", accountNumber: "27445847", amount: "50.000đ" };
 
-function CtaLink({ children }: { children: React.ReactNode }) {
+function PaymentModal({ open, onClose }: { open: boolean; onClose: () => void }) {
+  const [copied, setCopied] = useState(false);
+
+  useEffect(() => {
+    if (!open) return;
+    const onKey = (event: KeyboardEvent) => {
+      if (event.key === "Escape") onClose();
+    };
+    window.addEventListener("keydown", onKey);
+    document.body.style.overflow = "hidden";
+    return () => {
+      window.removeEventListener("keydown", onKey);
+      document.body.style.overflow = "";
+    };
+  }, [open, onClose]);
+
+  useEffect(() => {
+    if (!open) setCopied(false);
+  }, [open]);
+
+  if (!open) return null;
+
+  const copyAccount = async () => {
+    try {
+      await navigator.clipboard.writeText(bank.accountNumber);
+      setCopied(true);
+      window.setTimeout(() => setCopied(false), 2000);
+    } catch {
+      setCopied(false);
+    }
+  };
+
   return (
-    <a
-      href={zaloHref}
-      target="_blank"
-      rel="noopener noreferrer"
-      aria-label="Liên hệ Huỳnh Việt Anh qua Zalo"
+    <div
+      role="dialog"
+      aria-modal="true"
+      aria-label="Thanh toán đăng ký"
+      className="fixed inset-0 z-50 flex items-end justify-center overflow-y-auto bg-foreground/70 p-4 backdrop-blur-sm sm:items-center"
+      onClick={onClose}
+    >
+      <div
+        className="my-auto w-full max-w-md overflow-hidden rounded-lg border border-border bg-card shadow-[var(--shadow-hero)]"
+        onClick={(event) => event.stopPropagation()}
+      >
+        <div className="flex items-center justify-between border-b border-border bg-accent px-5 py-4">
+          <div className="flex items-center gap-2">
+            <QrCode className="size-5 text-primary" aria-hidden="true" />
+            <h2 className="font-display text-lg font-black">Hoàn tất đăng ký</h2>
+          </div>
+          <button
+            type="button"
+            onClick={onClose}
+            aria-label="Đóng cửa sổ thanh toán"
+            className="flex size-9 items-center justify-center rounded-md text-muted-foreground transition hover:bg-background hover:text-foreground"
+          >
+            <X className="size-5" aria-hidden="true" />
+          </button>
+        </div>
+
+        <div className="max-h-[70vh] overflow-y-auto px-5 py-5 sm:px-6">
+          <div className="rounded-md border border-primary/25 bg-accent px-4 py-3 text-center">
+            <p className="text-xs font-bold uppercase text-muted-foreground">Phí tham gia</p>
+            <p className="mt-1 font-display text-3xl font-black text-primary">{bank.amount}</p>
+          </div>
+
+          <div className="mt-5 rounded-md border border-border bg-background p-4">
+            <img
+              src={paymentQr.url}
+              width={487}
+              height={590}
+              alt={`Mã QR chuyển khoản ${bank.amount} đến ${bank.accountName} tại ${bank.name}`}
+              className="mx-auto w-full max-w-[15rem] rounded-md"
+            />
+            <dl className="mt-4 space-y-2 text-sm">
+              <div className="flex items-center justify-between gap-3">
+                <dt className="text-muted-foreground">Ngân hàng</dt>
+                <dd className="font-bold">{bank.name}</dd>
+              </div>
+              <div className="flex items-center justify-between gap-3">
+                <dt className="text-muted-foreground">Chủ tài khoản</dt>
+                <dd className="text-right font-bold">{bank.accountName}</dd>
+              </div>
+              <div className="flex items-center justify-between gap-3">
+                <dt className="text-muted-foreground">Số tiền</dt>
+                <dd className="font-bold text-primary">{bank.amount}</dd>
+              </div>
+              <div className="flex items-center justify-between gap-3">
+                <dt className="text-muted-foreground">Số tài khoản</dt>
+                <dd className="flex items-center gap-2 font-bold">
+                  {bank.accountNumber}
+                  <button
+                    type="button"
+                    onClick={copyAccount}
+                    aria-label="Sao chép số tài khoản"
+                    className="inline-flex items-center gap-1 rounded-md border border-border bg-card px-2 py-1 text-xs font-bold text-primary transition hover:bg-accent"
+                  >
+                    {copied ? (
+                      <>
+                        <Check className="size-3.5" aria-hidden="true" /> Đã sao chép
+                      </>
+                    ) : (
+                      <>
+                        <Copy className="size-3.5" aria-hidden="true" /> Sao chép
+                      </>
+                    )}
+                  </button>
+                </dd>
+              </div>
+            </dl>
+          </div>
+
+          <ol className="mt-5 space-y-3 text-sm leading-relaxed text-muted-foreground">
+            <li className="flex gap-3">
+              <span className="font-display font-black text-primary">1.</span>
+              <span>Mở app ngân hàng và quét mã QR ở trên (hoặc chuyển khoản thủ công theo thông tin tài khoản).</span>
+            </li>
+            <li className="flex gap-3">
+              <span className="font-display font-black text-primary">2.</span>
+              <span>
+                Chuyển đúng số tiền <strong className="text-foreground">{bank.amount}</strong>, ghi chú tên của bạn để tiện xác nhận.
+              </span>
+            </li>
+            <li className="flex gap-3">
+              <span className="font-display font-black text-primary">3.</span>
+              <span>
+                Nhấn nút bên dưới để nhắn Zalo <strong className="text-foreground">0981081462</strong> kèm ảnh chụp chuyển khoản, Huỳnh Việt Anh sẽ xác nhận và gửi vé cùng tài nguyên cho bạn.
+              </span>
+            </li>
+          </ol>
+
+          <a
+            href={zaloConfirmHref}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group mt-6 flex min-h-14 items-center justify-center gap-3 rounded-md bg-primary px-6 py-4 text-center text-sm font-extrabold uppercase text-primary-foreground shadow-[var(--shadow-cta)] transition duration-200 hover:-translate-y-0.5 hover:bg-primary/90 sm:text-base"
+          >
+            <MessageCircle className="size-5" aria-hidden="true" />
+            Xác nhận qua Zalo 0981081462
+            <ArrowRight className="size-5 transition-transform group-hover:translate-x-1" aria-hidden="true" />
+          </a>
+          <p className="mt-3 text-center text-xs text-muted-foreground">
+            Sau khi chuyển khoản, hãy nhắn tin xác nhận để giữ chỗ sớm nhất.
+          </p>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function CtaButton({ children, onClick }: { children: React.ReactNode; onClick: () => void }) {
+  return (
+    <button
+      type="button"
+      onClick={onClick}
       className="group inline-flex min-h-14 items-center justify-center gap-3 rounded-md bg-primary px-7 py-4 text-center text-sm font-extrabold uppercase text-primary-foreground shadow-[var(--shadow-cta)] transition duration-200 hover:-translate-y-0.5 hover:bg-primary/90 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-ring sm:text-base"
     >
       {children}
       <ArrowRight className="size-5 transition-transform group-hover:translate-x-1" aria-hidden="true" />
-    </a>
+    </button>
   );
 }
 
 function Index() {
+  const [paymentOpen, setPaymentOpen] = useState(false);
+  const openPayment = () => setPaymentOpen(true);
+
   return (
     <main className="overflow-hidden bg-background text-foreground">
       <section className="relative px-5 pb-20 pt-10 sm:px-8 sm:pt-14 lg:pb-28">
@@ -129,10 +287,10 @@ function Index() {
             Đừng chỉ đứng ngoài quan sát AI. Hãy bắt đầu xây hệ thống của riêng bạn.
           </p>
           <div className="mt-5">
-            <CtaLink>Nhận vé &amp; miễn phí tài nguyên</CtaLink>
+            <CtaButton onClick={openPayment}>Đăng ký ngay</CtaButton>
           </div>
           <p className="mt-3 text-xs text-muted-foreground">
-            Bấm nút để kết bạn Zalo và nhận thông tin tham gia.
+            Bấm nút để chuyển khoản 50.000đ và xác nhận qua Zalo.
           </p>
         </div>
       </section>
@@ -244,7 +402,7 @@ function Index() {
             Gặp gỡ những người đang cùng thử nghiệm agent, chia sẻ bài toán thật và biến hiểu biết thành hành động.
           </p>
           <div className="mt-8">
-            <CtaLink>Đăng ký qua Zalo</CtaLink>
+            <CtaButton onClick={openPayment}>Đăng ký ngay</CtaButton>
           </div>
         </div>
       </section>
@@ -262,6 +420,8 @@ function Index() {
           </div>
         </div>
       </footer>
+
+      <PaymentModal open={paymentOpen} onClose={() => setPaymentOpen(false)} />
     </main>
   );
 }
