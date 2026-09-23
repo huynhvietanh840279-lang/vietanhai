@@ -71,14 +71,15 @@ const benefits = [
   },
 ];
 
-const zaloHref = "#zalo-pending";
+const zaloHref = "https://zaloapp.com/qr/p/1np4wdmo7yk4v";
 
 function CtaLink({ children }: { children: React.ReactNode }) {
   return (
     <a
       href={zaloHref}
-      onClick={(event) => event.preventDefault()}
-      aria-label="Đường dẫn nhóm Zalo đang được cập nhật"
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="Liên hệ Huỳnh Việt Anh qua Zalo"
       className="group inline-flex min-h-14 items-center justify-center gap-3 rounded-md bg-primary px-7 py-4 text-center text-sm font-extrabold uppercase text-primary-foreground shadow-[var(--shadow-cta)] transition duration-200 hover:-translate-y-0.5 hover:bg-primary/90 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-ring sm:text-base"
     >
       {children}
@@ -130,8 +131,8 @@ function Index() {
           <div className="mt-5">
             <CtaLink>Nhận vé &amp; miễn phí tài nguyên</CtaLink>
           </div>
-          <p id="zalo-pending" className="mt-3 text-xs text-muted-foreground">
-            Đường dẫn nhóm Zalo sẽ được cập nhật trước khi mở đăng ký.
+          <p className="mt-3 text-xs text-muted-foreground">
+            Bấm nút để kết bạn Zalo và nhận thông tin tham gia.
           </p>
         </div>
       </section>
