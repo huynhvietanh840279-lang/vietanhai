@@ -400,7 +400,7 @@ function Index() {
               className="h-full w-full object-cover opacity-45"
             />
             <div className="absolute inset-0 flex flex-col items-center justify-center">
-              <div className="flex size-16 items-center justify-center rounded-full bg-primary text-primary-foreground shadow-[var(--shadow-cta)]">
+              <div className="flex size-16 items-center justify-center rounded-full bg-[var(--primary-bright)] text-primary-foreground shadow-[var(--shadow-cta)]">
                 <Play className="ml-1 size-7 fill-current" aria-hidden="true" />
               </div>
               <span className="mt-4 text-sm font-bold">Video demo sắp được cập nhật</span>
