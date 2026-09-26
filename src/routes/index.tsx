@@ -282,9 +282,10 @@ function Index() {
             />
             <div className="absolute inset-x-0 bottom-0 flex items-end bg-gradient-to-t from-foreground/90 via-foreground/15 to-transparent px-5 py-5 text-left sm:px-8 sm:py-7">
               <div className="max-w-md text-background">
-                <p className="text-xs font-bold uppercase text-primary-foreground/80">Không biết mệt</p>
+                <p className="text-xs font-bold uppercase text-[var(--primary-bright)]">Không biết mệt</p>
                 <p className="mt-1 font-display text-2xl font-black sm:text-3xl">Trả lời khách mọi lúc mọi nơi</p>
               </div>
+            </div>
             </div>
           </div>
 
@@ -345,12 +346,12 @@ function Index() {
           </div>
           <article className="mt-10 grid overflow-hidden rounded-lg border border-border bg-card shadow-[var(--shadow-card)] md:grid-cols-[20rem_1fr]">
             <img
-              src={speakerImage}
+              src={speakerImage.url}
               loading="lazy"
-              width={1024}
-              height={1024}
-              alt="Chân dung minh họa cho Huỳnh Việt Anh – Việt Anh AI"
-              className="aspect-square h-full w-full object-cover"
+              width={675}
+              height={1200}
+              alt="Huỳnh Việt Anh – người xây dựng Nhân viên AI tại Việt Anh AI"
+              className="h-full w-full object-cover object-top md:aspect-auto"
             />
             <div className="flex flex-col justify-center p-7 sm:p-10">
               <p className="text-sm font-bold uppercase text-primary">Việt Anh AI</p>
@@ -375,7 +376,6 @@ function Index() {
                 Facebook: Huỳnh Việt Anh
                 <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" aria-hidden="true" />
               </a>
-              <p className="mt-4 text-xs text-muted-foreground">Hình ảnh mang tính minh họa.</p>
             </div>
           </article>
         </div>
