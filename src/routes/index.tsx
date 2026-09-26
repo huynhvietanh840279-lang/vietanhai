@@ -266,27 +266,25 @@ function Index() {
             Tự trả lời bình luận và tin nhắn Facebook tự nhiên như người thật, không biết mệt.
           </p>
 
-          <div className="relative mt-9">
+          <div className="mt-9 lg:grid lg:grid-cols-[1fr_15rem] lg:items-end lg:gap-8 xl:grid-cols-[1fr_17rem]">
+            <div className="relative overflow-hidden rounded-lg border-2 border-[var(--primary-bright)] shadow-[var(--shadow-hero)]">
+              <img
+                src={heroImage}
+                width={1536}
+                height={864}
+                alt="Minh họa nhân viên AI trả lời tin nhắn khách hàng liên tục ngày đêm"
+                className="aspect-video w-full object-cover"
+              />
+              <div className="absolute bottom-4 left-4 rounded-md bg-foreground/85 px-4 py-3 text-left backdrop-blur-sm sm:bottom-6 sm:left-6 sm:px-5 sm:py-4">
+                <p className="text-xs font-bold uppercase text-[var(--primary-bright)]">Không biết mệt</p>
+                <p className="mt-1 font-display text-lg font-black text-background sm:text-2xl">Trả lời khách mọi lúc mọi nơi</p>
+              </div>
+            </div>
             <img
               src={speakerCutout.url}
               alt="Huỳnh Việt Anh – người xây dựng Nhân viên AI"
-              className="pointer-events-none absolute -top-24 right-2 z-10 hidden w-44 drop-shadow-[0_18px_30px_color-mix(in_oklab,var(--primary)_35%,transparent)] lg:block xl:right-10 xl:w-52"
+              className="mx-auto mt-8 w-44 drop-shadow-[0_18px_30px_color-mix(in_oklab,var(--primary)_35%,transparent)] lg:mt-0 lg:w-full"
             />
-            <div className="relative overflow-hidden rounded-lg border-2 border-[var(--primary-bright)] shadow-[var(--shadow-hero)]">
-            <img
-              src={heroImage}
-              width={1536}
-              height={864}
-              alt="Minh họa nhân viên AI trả lời tin nhắn khách hàng liên tục ngày đêm"
-              className="aspect-video w-full object-cover"
-            />
-            <div className="absolute inset-x-0 bottom-0 flex items-end bg-gradient-to-t from-foreground/90 via-foreground/15 to-transparent px-5 py-5 text-left sm:px-8 sm:py-7">
-              <div className="max-w-md text-background">
-                <p className="text-xs font-bold uppercase text-[var(--primary-bright)]">Không biết mệt</p>
-                <p className="mt-1 font-display text-2xl font-black sm:text-3xl">Trả lời khách mọi lúc mọi nơi</p>
-              </div>
-            </div>
-            </div>
           </div>
 
           <p className="mt-8 text-base text-muted-foreground">
