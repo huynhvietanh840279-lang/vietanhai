@@ -65,25 +65,26 @@
 
 :root {
   --radius: 0.5rem;
-  --background: oklch(0.985 0.008 70);
-  --foreground: oklch(0.16 0.01 55);
+  --background: oklch(0.99 0.006 95);
+  --foreground: oklch(0.21 0.015 285);
   --card: oklch(1 0 0);
-  --card-foreground: oklch(0.16 0.01 55);
+  --card-foreground: oklch(0.21 0.015 285);
   --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.16 0.01 55);
-  --primary: oklch(0.65 0.23 37);
-  --primary-foreground: oklch(0.99 0.004 70);
-  --secondary: oklch(0.27 0.02 55);
-  --secondary-foreground: oklch(0.99 0.004 70);
-  --muted: oklch(0.95 0.012 70);
-  --muted-foreground: oklch(0.45 0.02 55);
-  --accent: oklch(0.95 0.045 50);
-  --accent-foreground: oklch(0.38 0.12 35);
+  --popover-foreground: oklch(0.21 0.015 285);
+  --primary: oklch(0.72 0.145 88);
+  --primary-bright: oklch(0.84 0.165 92);
+  --primary-foreground: oklch(0.21 0.015 285);
+  --secondary: oklch(0.27 0.02 285);
+  --secondary-foreground: oklch(0.99 0.004 95);
+  --muted: oklch(0.96 0.015 95);
+  --muted-foreground: oklch(0.46 0.02 285);
+  --accent: oklch(0.96 0.05 95);
+  --accent-foreground: oklch(0.55 0.13 85);
   --destructive: oklch(0.577 0.245 27.325);
   --destructive-foreground: oklch(0.984 0.003 247.858);
-  --border: oklch(0.89 0.025 60);
-  --input: oklch(0.89 0.025 60);
-  --ring: oklch(0.65 0.23 37);
+  --border: oklch(0.91 0.03 92);
+  --input: oklch(0.91 0.03 92);
+  --ring: oklch(0.72 0.145 88);
   --shadow-cta: 0 12px 26px color-mix(in oklab, var(--primary) 30%, transparent);
   --shadow-hero: 0 24px 70px color-mix(in oklab, var(--primary) 20%, transparent);
   --shadow-card: 0 18px 50px color-mix(in oklab, var(--foreground) 8%, transparent);
@@ -155,7 +156,19 @@
   position: absolute;
   inset: 0 0 auto;
   height: 42rem;
-  background: radial-gradient(circle at 50% 18%, color-mix(in oklab, var(--primary) 13%, transparent), transparent 62%);
+  background: radial-gradient(circle at 50% 18%, color-mix(in oklab, var(--primary-bright) 22%, transparent), transparent 62%);
+  pointer-events: none;
+}
+
+.hero-circuit {
+  position: absolute;
+  inset: 0;
+  background-image:
+    radial-gradient(color-mix(in oklab, var(--primary-bright) 55%, transparent) 1.5px, transparent 1.5px),
+    linear-gradient(90deg, color-mix(in oklab, var(--primary-bright) 10%, transparent) 1px, transparent 1px),
+    linear-gradient(0deg, color-mix(in oklab, var(--primary-bright) 10%, transparent) 1px, transparent 1px);
+  background-size: 26px 26px, 104px 104px, 104px 104px;
+  mask-image: radial-gradient(ellipse 75% 60% at 50% 25%, black, transparent 75%);
   pointer-events: none;
 }
 

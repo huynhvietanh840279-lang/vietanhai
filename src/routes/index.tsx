@@ -19,8 +19,9 @@ import {
   X,
   Zap,
 } from "lucide-react";
-import heroImage from "../assets/ai-agent-command-center.jpg";
-import speakerImage from "../assets/speaker-illustration.jpg";
+import heroImage from "../assets/ai-chat-hero.jpg";
+import speakerImage from "../assets/huynh-viet-anh.jpg.asset.json";
+import speakerCutout from "../assets/huynh-viet-anh-tach-nen.png.asset.json";
 import paymentQr from "../assets/payment-qr.png.asset.json";
 
 export const Route = createFileRoute("/")({
@@ -216,7 +217,7 @@ function PaymentModal({ open, onClose }: { open: boolean; onClose: () => void })
             href={zaloConfirmHref}
             target="_blank"
             rel="noopener noreferrer"
-            className="group mt-6 flex min-h-14 items-center justify-center gap-3 rounded-md bg-primary px-6 py-4 text-center text-sm font-extrabold uppercase text-primary-foreground shadow-[var(--shadow-cta)] transition duration-200 hover:-translate-y-0.5 hover:bg-primary/90 sm:text-base"
+            className="group mt-6 flex min-h-14 items-center justify-center gap-3 rounded-md bg-[var(--primary-bright)] px-6 py-4 text-center text-sm font-extrabold uppercase text-primary-foreground shadow-[var(--shadow-cta)] transition duration-200 hover:-translate-y-0.5 hover:brightness-95 sm:text-base"
           >
             <MessageCircle className="size-5" aria-hidden="true" />
             Xác nhận qua Zalo 0981081462
@@ -236,7 +237,7 @@ function CtaButton({ children, onClick }: { children: React.ReactNode; onClick: 
     <button
       type="button"
       onClick={onClick}
-      className="group inline-flex min-h-14 items-center justify-center gap-3 rounded-md bg-primary px-7 py-4 text-center text-sm font-extrabold uppercase text-primary-foreground shadow-[var(--shadow-cta)] transition duration-200 hover:-translate-y-0.5 hover:bg-primary/90 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-ring sm:text-base"
+      className="group inline-flex min-h-14 items-center justify-center gap-3 rounded-md bg-[var(--primary-bright)] px-7 py-4 text-center text-sm font-extrabold uppercase text-primary-foreground shadow-[var(--shadow-cta)] transition duration-200 hover:-translate-y-0.5 hover:brightness-95 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-ring sm:text-base"
     >
       {children}
       <ArrowRight className="size-5 transition-transform group-hover:translate-x-1" aria-hidden="true" />
@@ -252,6 +253,7 @@ function Index() {
     <main className="overflow-hidden bg-background text-foreground">
       <section className="relative px-5 pb-20 pt-10 sm:px-8 sm:pt-14 lg:pb-28">
         <div className="hero-glow" aria-hidden="true" />
+        <div className="hero-circuit" aria-hidden="true" />
         <div className="relative mx-auto max-w-6xl text-center">
           <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/5 px-4 py-2 text-xs font-bold uppercase text-primary">
             <Zap className="size-3.5 fill-current" aria-hidden="true" />
@@ -264,20 +266,25 @@ function Index() {
             Tự trả lời bình luận và tin nhắn Facebook tự nhiên như người thật, không biết mệt.
           </p>
 
-          <div className="relative mt-9 overflow-hidden rounded-lg border-2 border-primary shadow-[var(--shadow-hero)]">
-            <img
-              src={heroImage}
-              width={1536}
-              height={864}
-              alt="Minh họa nhân viên AI trả lời tin nhắn khách hàng liên tục ngày đêm"
-              className="aspect-video w-full object-cover"
-            />
-            <div className="absolute inset-x-0 bottom-0 flex items-end bg-gradient-to-t from-foreground/90 via-foreground/15 to-transparent px-5 py-5 text-left sm:px-8 sm:py-7">
-              <div className="max-w-md text-background">
-                <p className="text-xs font-bold uppercase text-primary-foreground/80">Không biết mệt</p>
-                <p className="mt-1 font-display text-2xl font-black sm:text-3xl">Trả lời khách mọi lúc mọi nơi</p>
+          <div className="mt-9 lg:grid lg:grid-cols-[1fr_15rem] lg:items-end lg:gap-8 xl:grid-cols-[1fr_17rem]">
+            <div className="relative overflow-hidden rounded-lg border-2 border-[var(--primary-bright)] shadow-[var(--shadow-hero)]">
+              <img
+                src={heroImage}
+                width={1536}
+                height={864}
+                alt="Minh họa nhân viên AI trả lời tin nhắn khách hàng liên tục ngày đêm"
+                className="aspect-video w-full object-cover"
+              />
+              <div className="absolute bottom-4 left-4 rounded-md bg-foreground/85 px-4 py-3 text-left backdrop-blur-sm sm:bottom-6 sm:left-6 sm:px-5 sm:py-4">
+                <p className="text-xs font-bold uppercase text-[var(--primary-bright)]">Không biết mệt</p>
+                <p className="mt-1 font-display text-lg font-black text-background sm:text-2xl">Trả lời khách mọi lúc mọi nơi</p>
               </div>
             </div>
+            <img
+              src={speakerCutout.url}
+              alt="Huỳnh Việt Anh – người xây dựng Nhân viên AI"
+              className="mx-auto mt-8 w-44 drop-shadow-[0_18px_30px_color-mix(in_oklab,var(--primary)_35%,transparent)] lg:mt-0 lg:w-full"
+            />
           </div>
 
           <p className="mt-8 text-base text-muted-foreground">
@@ -337,12 +344,12 @@ function Index() {
           </div>
           <article className="mt-10 grid overflow-hidden rounded-lg border border-border bg-card shadow-[var(--shadow-card)] md:grid-cols-[20rem_1fr]">
             <img
-              src={speakerImage}
+              src={speakerImage.url}
               loading="lazy"
-              width={1024}
-              height={1024}
-              alt="Chân dung minh họa cho Huỳnh Việt Anh – Việt Anh AI"
-              className="aspect-square h-full w-full object-cover"
+              width={675}
+              height={1200}
+              alt="Huỳnh Việt Anh – người xây dựng Nhân viên AI tại Việt Anh AI"
+              className="h-full w-full object-cover object-top md:aspect-auto"
             />
             <div className="flex flex-col justify-center p-7 sm:p-10">
               <p className="text-sm font-bold uppercase text-primary">Việt Anh AI</p>
@@ -367,7 +374,6 @@ function Index() {
                 Facebook: Huỳnh Việt Anh
                 <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" aria-hidden="true" />
               </a>
-              <p className="mt-4 text-xs text-muted-foreground">Hình ảnh mang tính minh họa.</p>
             </div>
           </article>
         </div>
@@ -392,7 +398,7 @@ function Index() {
               className="h-full w-full object-cover opacity-45"
             />
             <div className="absolute inset-0 flex flex-col items-center justify-center">
-              <div className="flex size-16 items-center justify-center rounded-full bg-primary text-primary-foreground shadow-[var(--shadow-cta)]">
+              <div className="flex size-16 items-center justify-center rounded-full bg-[var(--primary-bright)] text-primary-foreground shadow-[var(--shadow-cta)]">
                 <Play className="ml-1 size-7 fill-current" aria-hidden="true" />
               </div>
               <span className="mt-4 text-sm font-bold">Video demo sắp được cập nhật</span>
