@@ -253,6 +253,7 @@ function Index() {
     <main className="overflow-hidden bg-background text-foreground">
       <section className="relative px-5 pb-20 pt-10 sm:px-8 sm:pt-14 lg:pb-28">
         <div className="hero-glow" aria-hidden="true" />
+        <div className="hero-circuit" aria-hidden="true" />
         <div className="relative mx-auto max-w-6xl text-center">
           <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/5 px-4 py-2 text-xs font-bold uppercase text-primary">
             <Zap className="size-3.5 fill-current" aria-hidden="true" />
@@ -265,7 +266,13 @@ function Index() {
             Tự trả lời bình luận và tin nhắn Facebook tự nhiên như người thật, không biết mệt.
           </p>
 
-          <div className="relative mt-9 overflow-hidden rounded-lg border-2 border-primary shadow-[var(--shadow-hero)]">
+          <div className="relative mt-9">
+            <img
+              src={speakerCutout.url}
+              alt="Huỳnh Việt Anh – người xây dựng Nhân viên AI"
+              className="pointer-events-none absolute -top-24 right-2 z-10 hidden w-44 drop-shadow-[0_18px_30px_color-mix(in_oklab,var(--primary)_35%,transparent)] lg:block xl:right-10 xl:w-52"
+            />
+            <div className="relative overflow-hidden rounded-lg border-2 border-[var(--primary-bright)] shadow-[var(--shadow-hero)]">
             <img
               src={heroImage}
               width={1536}
