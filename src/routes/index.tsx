@@ -19,8 +19,9 @@ import {
   X,
   Zap,
 } from "lucide-react";
-import heroImage from "../assets/ai-agent-command-center.jpg";
-import speakerImage from "../assets/speaker-illustration.jpg";
+import heroImage from "../assets/ai-chat-hero.jpg";
+import speakerImage from "../assets/huynh-viet-anh.jpg.asset.json";
+import speakerCutout from "../assets/huynh-viet-anh-tach-nen.png.asset.json";
 import paymentQr from "../assets/payment-qr.png.asset.json";
 
 export const Route = createFileRoute("/")({
@@ -216,7 +217,7 @@ function PaymentModal({ open, onClose }: { open: boolean; onClose: () => void })
             href={zaloConfirmHref}
             target="_blank"
             rel="noopener noreferrer"
-            className="group mt-6 flex min-h-14 items-center justify-center gap-3 rounded-md bg-primary px-6 py-4 text-center text-sm font-extrabold uppercase text-primary-foreground shadow-[var(--shadow-cta)] transition duration-200 hover:-translate-y-0.5 hover:bg-primary/90 sm:text-base"
+            className="group mt-6 flex min-h-14 items-center justify-center gap-3 rounded-md bg-[var(--primary-bright)] px-6 py-4 text-center text-sm font-extrabold uppercase text-primary-foreground shadow-[var(--shadow-cta)] transition duration-200 hover:-translate-y-0.5 hover:brightness-95 sm:text-base"
           >
             <MessageCircle className="size-5" aria-hidden="true" />
             Xác nhận qua Zalo 0981081462
@@ -236,7 +237,7 @@ function CtaButton({ children, onClick }: { children: React.ReactNode; onClick: 
     <button
       type="button"
       onClick={onClick}
-      className="group inline-flex min-h-14 items-center justify-center gap-3 rounded-md bg-primary px-7 py-4 text-center text-sm font-extrabold uppercase text-primary-foreground shadow-[var(--shadow-cta)] transition duration-200 hover:-translate-y-0.5 hover:bg-primary/90 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-ring sm:text-base"
+      className="group inline-flex min-h-14 items-center justify-center gap-3 rounded-md bg-[var(--primary-bright)] px-7 py-4 text-center text-sm font-extrabold uppercase text-primary-foreground shadow-[var(--shadow-cta)] transition duration-200 hover:-translate-y-0.5 hover:brightness-95 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-ring sm:text-base"
     >
       {children}
       <ArrowRight className="size-5 transition-transform group-hover:translate-x-1" aria-hidden="true" />
