@@ -30,14 +30,14 @@ export const Route = createFileRoute("/")({
       { title: "Nhân viên AI chăm sóc khách hàng 24/7 | Việt Anh AI" },
       {
         name: "description",
-        content:
-          "Tự trả lời bình luận và tin nhắn Facebook tự nhiên như người thật, không biết mệt. Chỉ 2$ trả một lần là bạn có Nhân viên AI chăm sóc khách hàng 24/7.",
+          content:
+            "Tự trả lời bình luận và tin nhắn Facebook tự nhiên như người thật, không biết mệt. Chỉ 50.000đ trả một lần là bạn có Nhân viên AI chăm sóc khách hàng 24/7.",
       },
       { property: "og:title", content: "Nhân viên AI chăm sóc khách hàng 24/7" },
       {
         property: "og:description",
-        content:
-          "Tự trả lời bình luận và tin nhắn Facebook tự nhiên như người thật. Chỉ 2$ – trả một lần.",
+            content:
+              "Tự trả lời bình luận và tin nhắn Facebook tự nhiên như người thật. Chỉ 50.000đ – trả một lần.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
@@ -81,7 +81,7 @@ const benefits = [
 
 const zaloConfirmHref = "https://zalo.me/0981081462";
 const facebookHref = "https://www.facebook.com/huynh.viet.anh.325127";
-const bank = { name: "ACB", accountName: "HUYNH VIET ANH", accountNumber: "27445847", amount: "2$ (trả một lần)" };
+const bank = { name: "ACB", accountName: "HUYNH VIET ANH", accountNumber: "27445847", amount: "50.000đ (trả một lần)" };
 
 function PaymentModal({ open, onClose }: { open: boolean; onClose: () => void }) {
   const [copied, setCopied] = useState(false);
@@ -202,7 +202,7 @@ function PaymentModal({ open, onClose }: { open: boolean; onClose: () => void })
             <li className="flex gap-3">
               <span className="font-display font-black text-primary">2.</span>
               <span>
-                Chuyển khoản số tiền tương đương <strong className="text-foreground">2$</strong>, ghi chú tên của bạn để tiện xác nhận.
+                Chuyển khoản đúng <strong className="text-foreground">50.000đ</strong>, ghi chú tên của bạn để tiện xác nhận.
               </span>
             </li>
             <li className="flex gap-3">
@@ -257,7 +257,7 @@ function Index() {
         <div className="relative mx-auto max-w-6xl text-center">
           <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/5 px-4 py-2 text-xs font-bold uppercase text-primary">
             <Zap className="size-3.5 fill-current" aria-hidden="true" />
-            Chỉ 2$ – Trả một lần
+            Chỉ 50.000đ – Trả một lần
           </div>
           <h1 className="mx-auto max-w-5xl font-display text-4xl font-black leading-[1.05] sm:text-6xl lg:text-7xl">
             NHÂN VIÊN AI CHĂM SÓC KHÁCH HÀNG <span className="text-primary">24/7</span>
@@ -288,13 +288,13 @@ function Index() {
           </div>
 
           <p className="mt-8 text-base text-muted-foreground">
-            Chỉ 2$ là bạn có nhân viên AI chăm sóc khách hàng không biết mệt.
+            Chỉ 50.000đ là bạn có nhân viên AI chăm sóc khách hàng không biết mệt.
           </p>
           <div className="mt-5">
-            <CtaButton onClick={openPayment}>Nhận Nhân viên AI – 2$</CtaButton>
+            <CtaButton onClick={openPayment}>Nhận Nhân viên AI – 50.000đ</CtaButton>
           </div>
           <p className="mt-3 text-xs text-muted-foreground">
-            Bấm nút để chuyển khoản 2$ và nhận Nhân viên AI qua Zalo.
+            Bấm nút để chuyển khoản 50.000đ và nhận Nhân viên AI qua Zalo.
           </p>
         </div>
       </section>
@@ -415,7 +415,7 @@ function Index() {
             Khách được trả lời ngay mọi lúc, bạn giữ trọn thời gian cho việc quan trọng hơn.
           </p>
           <div className="mt-8">
-            <CtaButton onClick={openPayment}>Nhận Nhân viên AI – 2$</CtaButton>
+            <CtaButton onClick={openPayment}>Nhận Nhân viên AI – 50.000đ</CtaButton>
           </div>
         </div>
       </section>
