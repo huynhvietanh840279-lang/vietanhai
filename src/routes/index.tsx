@@ -746,8 +746,8 @@ function Index() {
               Xem Nhân viên AI <span className="text-gold-gradient">làm việc</span>
             </h2>
             <p className="mt-5 max-w-xl text-white/65 sm:text-lg lg:max-w-md">
-              Video demo đang được hoàn thiện và sẽ cập nhật tại đây. Trong lúc chờ, bạn có thể nhắn
-              Zalo để được tư vấn trực tiếp.
+              Xem Nhân viên AI trả lời bình luận, nhắn tin tư vấn và đăng bài giúp shop. Bật âm
+              thanh để nghe trọn video. Shop và khách trong video là ví dụ minh họa.
             </p>
             <a
               href={zaloConfirmHref}
@@ -761,22 +761,18 @@ function Index() {
           </div>
           <div className="reveal hero-frame" style={{ transitionDelay: "120ms" }}>
             <div className="relative aspect-video overflow-hidden rounded-[0.95rem] bg-[var(--ink)]">
-              <img
-                src={heroImage}
-                loading="lazy"
-                width={1536}
-                height={864}
-                alt="Ảnh bìa video demo Nhân viên AI"
-                className="h-full w-full object-cover opacity-40"
+              <video
+                src="/demo-nhan-vien-ai.mp4"
+                poster="/demo-poster.jpg"
+                className="h-full w-full object-cover"
+                controls
+                autoPlay
+                muted
+                loop
+                playsInline
+                preload="metadata"
+                aria-label="Video demo Nhân viên AI trả lời bình luận, nhắn tin và đăng bài"
               />
-              <div className="absolute inset-0 flex flex-col items-center justify-center">
-                <div className="cta-gold cta-pulse flex size-20 items-center justify-center rounded-full">
-                  <Play className="relative z-10 ml-1 size-8 fill-current" aria-hidden="true" />
-                </div>
-                <span className="mt-4 rounded-full bg-black/50 px-4 py-1.5 text-sm font-bold text-white backdrop-blur">
-                  Video demo sắp được cập nhật
-                </span>
-              </div>
             </div>
           </div>
         </div>
