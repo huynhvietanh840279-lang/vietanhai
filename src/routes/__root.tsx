@@ -78,10 +78,18 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       { title: "Việt Anh AI – Nhân viên AI chăm sóc khách hàng 24/7" },
-      { name: "description", content: "Nhân viên AI tự trả lời bình luận và tin nhắn Facebook 24/7 như người thật. Chỉ 50.000đ – trả một lần." },
+      {
+        name: "description",
+        content:
+          "Nhân viên AI tự trả lời bình luận và tin nhắn Facebook 24/7 như người thật. Chỉ 50.000đ – trả một lần.",
+      },
       { name: "author", content: "Việt Anh AI" },
       { property: "og:title", content: "Việt Anh AI – Nhân viên AI chăm sóc khách hàng 24/7" },
-      { property: "og:description", content: "Nhân viên AI tự trả lời bình luận và tin nhắn Facebook 24/7 như người thật. Chỉ 50.000đ – trả một lần." },
+      {
+        property: "og:description",
+        content:
+          "Nhân viên AI tự trả lời bình luận và tin nhắn Facebook 24/7 như người thật. Chỉ 50.000đ – trả một lần.",
+      },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
@@ -94,7 +102,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
       {
         rel: "stylesheet",
-        href: "https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:wght@600;700&display=swap",
+        href: "https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@600;700;800;900&family=Manrope:wght@400;500;600;700;800&display=swap",
       },
       { rel: "icon", href: "/favicon.ico", type: "image/x-icon" },
     ],
@@ -107,7 +115,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
 
 function RootShell({ children }: { children: ReactNode }) {
   return (
-    <html lang="en">
+    <html lang="vi">
       <head>
         <HeadContent />
       </head>
